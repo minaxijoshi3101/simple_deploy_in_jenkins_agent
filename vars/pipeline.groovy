@@ -17,13 +17,16 @@ pipeline
     mvn clean install
     cd webapp/target
     '''
+    stash 'source'
     }
     }
     node("SIT_ENV")
     {
     stage("deploy")
     {
-    cp **/*.war /opt/tomcat/webapps/
+    unstash 'source'
+    sh " cp **/*.war /opt/tomcat/webapps/ "
+      
     }
   }
 }
