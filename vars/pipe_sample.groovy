@@ -28,7 +28,9 @@ pipeline
     stage("deploy")
     {
     unstash 'source'
-    sh " cp **/*.war /opt/tomcat/webapps/ "
+    sh ''' 
+    cp *.war /opt/tomcat/webapps/
+    '''
       
     }
   }
