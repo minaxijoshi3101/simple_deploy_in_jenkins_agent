@@ -18,7 +18,7 @@ pipeline
     sh '''
     cd hello-world-1
     mvn clean install
-    cd webapp/target
+    
     '''
     stash 'source'
     }
@@ -29,6 +29,7 @@ pipeline
     {
     unstash 'source'
     sh ''' 
+    cd $WORKSPACE/hello-world-1/webapp/target
     cp *.war /opt/tomcat/webapps/
     '''
       
