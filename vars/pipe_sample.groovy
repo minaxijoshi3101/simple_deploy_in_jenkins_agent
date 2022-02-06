@@ -8,6 +8,7 @@ pipeline
     {
     echo "checkout scm"
     sh '''
+    rm -rf hello-world-1
     git clone "git@github.com:minaxijoshi3101/hello-world-1.git"
     cd $WORKSPACE/hello-world-1
     '''
