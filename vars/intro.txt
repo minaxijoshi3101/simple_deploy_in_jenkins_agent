@@ -14,9 +14,48 @@ we use stages such as:
 6. Deploy the artifacts in application server that is apache tomcat
 7. Start the processes 
 8. Post release check - testing. We are using selenium for testing
-
+also 
 We have java based microservices, we dockerize those applications by creating custom docker images.
 Deploy it into different different env…
+we have QA, Staging, PROD and UAT enviornments.
+
+We push those images to our docker registry. we are using AWS-ECR(Elastic Container Registry) as a docker registry. 
+We pull those emages in different envs and execute using docker run command.
+===================================================================
+Docker is a containerization tool. we can comapre it with VM. but containers are light weight. resourse utilization is good.
+=========================================================-
+GIT - 
+
+master branch is the top most branch - we do prod release
+we have development branch - we do release in Pre prod envs from here.
+we have feature branches - which are created by developers as per their ERP numbers.(ticketing tool)
+Feature branch is being mergeed to development branch 
+finally development branch will be merged to master.
+==================================================================================
+Nexus:
+artifacts mgmnt tool. we keep our artifacts in nexus.
+which version - 3
+repositories: 
+Staging.
+Release repo.
+
+Repository:===========>
+A repository is a storage location where component such as packages, libreries, binaries, or a containers are retrieves so that they can be installed or used.
+
+Repository Manager:============>
+
+A repository Manager is a dedicated server application use to manage all the repositories your development teams are throughout the cource of development.
+
+
+At its core repository manager does the following:
+
+1. Store and retrieve build artifacts.
+2. Proxies remote repositories and caches contents.
+3. Hosts internal repositories.
+4. Group repositories into single repository.
+5. Enable greater cloobration between developer.
+6. Reduce network bandwidth and dependency on remote repository.
+=========================================================-
 #FROM instruction - It uses base image
 FROM openjdk:11.0.2-jre-slim
 MAINTAINER snehasish
